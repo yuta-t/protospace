@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'rails', '4.2.5'
 gem 'mysql2', '0.3.18'
 gem 'sass-rails', '~> 5.0'
@@ -11,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
