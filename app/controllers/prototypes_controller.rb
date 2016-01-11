@@ -6,7 +6,8 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    redirect_to :index
+    current_user.prototypes.create(create_params)
+    redirect_to action: :index
   end
 
   def show
@@ -14,5 +15,6 @@ class PrototypesController < ApplicationController
 
   private
   def create_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept)
   end
 end
