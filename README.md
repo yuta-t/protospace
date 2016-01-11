@@ -6,6 +6,7 @@ deviceのデフォルトカラム
 profile: :text
 occupation: :string
 position: :string
+carrierwaveのデフォルトカラム
 
 ### prototypes テーブル
 user_id: :references
@@ -14,8 +15,8 @@ catch_copy: :string
 concept: :text
 
 ### imgaes テーブル
-imageable_type: :string (prototype_main or prototype_sub or user)
-imageable_id: :references
+prototype_id: :references
+type: :string (Main or Sub)
 carrirewaveのデフォルトカラム
 
 ### likes テーブル
