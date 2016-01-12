@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :image, ImageUploader
+
+  validates_presence_of [:user_name, :image, :profile, :occupation, :position]
+
+  has_many :prototypes
 end
