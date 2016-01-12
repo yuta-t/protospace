@@ -3,6 +3,8 @@ class PrototypesController < ApplicationController
   end
 
   def new
+    @prototype = Prototype.new
+    @prototype.images.build
   end
 
   def create
@@ -15,6 +17,6 @@ class PrototypesController < ApplicationController
 
   private
   def create_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:name, :image_type])
   end
 end
