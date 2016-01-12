@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   def index
+    @prototypes = Prototype.page(params[:page])
   end
 
   def new
@@ -13,6 +14,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Prototype.find(params[:id])
+    @user = @prototype.user
+    @sub_images = @prototype.images.sub
   end
 
   private
