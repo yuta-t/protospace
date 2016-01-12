@@ -17,6 +17,7 @@ gem 'erb2haml'
 gem 'devise'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
