@@ -1,5 +1,5 @@
 $(function() {
-  $('.cover-image-upload, .image-upload').each(function() {
+  $('.cover-image-upload, .image-upload, .user-image').each(function() {
     var self = $(this)
     var input = self.find('input[type=file]')
 
