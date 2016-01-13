@@ -11,10 +11,6 @@ $(function() {
         return
       }
 
-      if (!file.type.match('image.*')) {
-        return
-      }
-
       fileReader.onload = function() {
         self.css({
           'background-image': 'url(' + fileReader.result + ')',
