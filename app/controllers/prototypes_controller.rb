@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
     redirect_to root_path
   end
 
-  def delete
+  def destroy
   end
 
   private
