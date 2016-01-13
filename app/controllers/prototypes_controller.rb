@@ -16,14 +16,16 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    current_user.prototypes.create(create_params)
-    redirect_to action: :index
+    current_user.prototypes.create(prototype_params)
+    redirect_to root_path
   end
 
   def edit
   end
 
   def update
+    @prototype.update(prototype_params)
+    redirect_to root_path
   end
 
   def delete
@@ -34,7 +36,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
-  def create_params
+  def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:name, :image_type])
   end
 end
