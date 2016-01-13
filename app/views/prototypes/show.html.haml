@@ -7,7 +7,7 @@
             = image_tag @prototype.user.image.url, size: "64x64", class: "media-object"
         .media-body
           %h4#top-aligned-media.media-heading
-            Top aligned media
+            = @prototype.title
           .proto-user
             %a{:href => ""} by #{@user.user_name}
             %span.degree #{@user.occupation} #{@user.position}
