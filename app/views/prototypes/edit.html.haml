@@ -1,0 +1,62 @@
+.container.proto-new
+  = form_for @prototype do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = f.text_field :title, placeholder: 'Title', class: 'proto-new-title', autofacus: true
+      .row
+        .col-md-12
+          .cover-image-upload
+            = f.fields_for :images do |image_f|
+              = image_f.file_field :name
+              = image_f.hidden_field :image_type, value: :main
+        .col-md-12
+          %ul.proto-sub-list.list-group
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :images do |image_f|
+                  = image_f.file_field :name
+                  = image_f.hidden_field :image_type, value: :sub
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :images do |image_f|
+                  = image_f.file_field :name
+                  = image_f.hidden_field :image_type, value: :sub
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
+      .row.proto-description
+        .col-md-12
+          = f.text_field :catch_copy, placeholder: 'Catch Copy'
+        .col-md-12
+          = f.text_area :concept, placeholder: 'Concept'
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              %input{:type => "text", :placeholder => "Web Design"}/
+            .col-md-3
+              %input{:type => "text", :placeholder => "UI"}/
+            .col-md-3
+              %input{:type => "text", :placeholder => "Application"}/
+      .row.text-center.proto-btn
+        = f.submit 'Update', class: 'btn btn-lg btn-primary btn-block'
+
+= javascript_tag do
+  :plain
+    var mainImage = #{raw @prototype.images.main.first.to_json}
+    var subImages = #{raw @prototype.images.sub.to_json}
+
+    if (!!mainImage) {
+      $('.cover-image-upload').css({
+        'background-image': 'url(' + mainImage.name.url + ')',
+        'background-size': 'contain'
+      })
+    }
+
+    $(subImages).each(function(index) {
+      $($('.image-upload')[index]).css({
+        'background-image': 'url(' + subImages[index].name.url + ')',
+        'background-size': 'contain'
+      })
+    })

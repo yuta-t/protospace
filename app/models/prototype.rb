@@ -4,4 +4,6 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :images
 
   validates_presence_of :title, :catch_copy, :concept
+
+  paginates_per 2
 end
