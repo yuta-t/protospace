@@ -20,6 +20,7 @@ gem 'devise'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'kakurenbo-puti'
 
 group :development, :test do
   gem 'byebug'
