@@ -1,8 +1,9 @@
 class PrototypesController < ApplicationController
-  before_action :get_prototype, only: [:show, :edit, :update, :delete]
+  before_action :get_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prototypes = Prototype.page(params[:page])
+    @prototypes = Prototype.without_soft_destroyed
+                           .page(params[:page])
   end
 
   def show
@@ -29,6 +30,8 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
+    @prototype.soft_destroy
+    redirect_to root_path
   end
 
   private
