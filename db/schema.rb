@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111110952) do
+ActiveRecord::Schema.define(version: 20160113085836) do
 
   create_table "images", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
@@ -22,14 +22,16 @@ ActiveRecord::Schema.define(version: 20160111110952) do
   end
 
   create_table "prototypes", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "title",      limit: 255
-    t.string   "catch_copy", limit: 255
-    t.string   "concept",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",           limit: 4
+    t.string   "title",             limit: 255
+    t.string   "catch_copy",        limit: 255
+    t.string   "concept",           limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.datetime "soft_destroyed_at"
   end
 
+  add_index "prototypes", ["soft_destroyed_at"], name: "index_prototypes_on_soft_destroyed_at", using: :btree
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
