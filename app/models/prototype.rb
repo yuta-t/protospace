@@ -1,7 +1,5 @@
 class Prototype < ActiveRecord::Base
-  # associations
-  belongs_to :user
-  has_many :images
+  # nested_attributes
   accepts_nested_attributes_for :images
 
   # validations
@@ -12,4 +10,9 @@ class Prototype < ActiveRecord::Base
 
   # setting for kakurenbo-puti
   soft_deletable
+
+  # associations
+  belongs_to :user
+  has_many :images
+  has_many :comments
 end

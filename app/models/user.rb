@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  validates_presence_of [:user_name, :image, :profile, :occupation, :position]
+  validates_presence_of :user_name, :image, :profile, :occupation, :position
 
   has_many :prototypes
+  has_many :comments
 end
