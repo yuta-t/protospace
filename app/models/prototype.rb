@@ -3,7 +3,7 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :images
 
   # validations
-  validates_presence_of :title, :catch_copy, :concept
+  validates_presence_of :title, :catchcopy, :concept
 
   # setting for kaminari
   paginates_per 2
