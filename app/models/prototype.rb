@@ -1,7 +1,4 @@
 class Prototype < ActiveRecord::Base
-  # nested_attributes
-  accepts_nested_attributes_for :images
-
   # validations
   validates_presence_of :title, :catchcopy, :concept
 
@@ -15,4 +12,7 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :images
   has_many :comments
+
+  # nested_attributes
+  accepts_nested_attributes_for :images
 end
