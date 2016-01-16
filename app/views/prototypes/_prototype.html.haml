@@ -1,6 +1,14 @@
 .col-sm-4.col-md-3.proto-content
   - if prototype.user == current_user
-    = render partial: 'prototype_action', locals: {prototype: prototype}
+    .drop_menu_location
+      %button#dropdownMenu.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+        Action
+      %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+        %li
+          = link_to 'Edit', edit_prototype_path(prototype)
+        %li
+          = link_to 'Delete', prototype_path(prototype), method: :delete
+
   .thumbnail
     = link_to image_tag(prototype.images.main.first.name.url), prototype_path(prototype.id)
     .caption
