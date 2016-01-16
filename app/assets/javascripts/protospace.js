@@ -1,4 +1,17 @@
 $(function() {
+  // 初期状態では表示されないものを隠す
+  $('.default-hide').hide()
+
+  // プラスボタンが押されたときにフォームを追加する
+  $('.image-upload-plus').click(function() {
+    $(this).hide()
+
+    var parent = $(this).parent()
+    var uploadForm = parent.find('.image-upload')
+    uploadForm.show()
+  })
+
+  // 投稿する画像が選択されたときにプレビューを表示する
   $('.preview-uploaded-image').each(function() {
     var self = $(this)
     var input = self.find('input[type=file]')

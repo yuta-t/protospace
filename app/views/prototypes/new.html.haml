@@ -25,6 +25,10 @@
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
+              .image-upload.preview-uploaded-image.default-hide
+                = f.fields_for :images do |image_f|
+                  = image_f.file_field :name
+                  = image_f.hidden_field :image_type, value: :sub
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: 'Catch Copy'
