@@ -13,8 +13,9 @@
               = f.file_field :image
 
           = f.email_field :email, placeholder: 'E-Mail', class: 'user-email'
-          = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'user-password'
-          = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation', class: 'user-password'
+          = f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password', class: 'user-password'
+          = f.password_field :password, autocomplete: "off", placeholder: 'New Password', class: 'user-password'
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'New Password Confirmation', class: 'user-password'
 
           %h4 Profile
           .user-user-profile.row
