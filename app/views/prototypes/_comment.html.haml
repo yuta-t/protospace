@@ -13,8 +13,8 @@
               Action
             %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
               %li
-                = link_to 'Edit', prototype_comment_path(comment.prototype, comment)
+                = link_to 'Edit', '', id: 'edit-comment'
               %li
-                = link_to 'Delete', prototype_comment_path(comment.prototype, comment), method: :delete
+                = link_to 'Delete', '', id: 'delete-comment'
 
     = simple_format(comment.comment)
