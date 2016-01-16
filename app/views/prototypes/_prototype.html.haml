@@ -1,6 +1,6 @@
 .col-sm-4.col-md-3.proto-content
   - if prototype.user == current_user
-    = render partial: 'action', locals: {prototype: prototype}
+    = render partial: 'prototype_action', locals: {prototype: prototype}
   .thumbnail
     = link_to image_tag(prototype.images.main.first.name.url), prototype_path(prototype.id)
     .caption
