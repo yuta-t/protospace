@@ -48,11 +48,12 @@
     .col-md-8
       #comments
         = render partial: 'prototypes/comment', collection: @comments
-      .form-inline
-        = form_for [@prototype, @comment], remote: true do |f|
-          %h4 Write a comment
-          .row
-            .form-group.col-md-10
-              = f.text_area :comment, placeholder: 'Your comment', class: 'form-control'
-            .form-group.col-md-2
-              = f.submit 'Comment', class: 'btn btn-primary'
+      - if user_signed_in?
+        .form-inline
+          = form_for [@prototype, @comment], remote: true do |f|
+            %h4 Write a comment
+            .row
+              .form-group.col-md-10
+                = f.text_area :comment, placeholder: 'Your comment', class: 'form-control'
+              .form-group.col-md-2
+                = f.submit 'Comment', class: 'btn btn-primary'
