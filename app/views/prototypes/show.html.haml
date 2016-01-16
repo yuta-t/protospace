@@ -8,6 +8,8 @@
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.title
+            - if @prototype.user == current_user
+              = link_to 'Edit', edit_prototype_path(@prototype.id), class: 'btn btn-xs navbar-inverse btn-edit'
           .proto-user
             %a{:href => ""} by #{@user.username}
             %span.degree #{@user.occupation} #{@user.position}
