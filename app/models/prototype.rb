@@ -14,5 +14,10 @@ class Prototype < ActiveRecord::Base
   has_many :comments
 
   # nested_attributes
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images,
+                     reject_if: :reject_image
+
+  def reject_image
+    attributed['name'].blank?
+  end
 end

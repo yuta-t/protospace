@@ -40,6 +40,6 @@ class PrototypesController < ApplicationController
   end
 
   def prototype_params
-    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:name, :image_type])
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:id, :name, :image_type])
   end
 end
