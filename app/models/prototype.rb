@@ -3,7 +3,7 @@ class Prototype < ActiveRecord::Base
   validates_presence_of :title, :catchcopy, :concept
 
   # setting for kaminari
-  paginates_per 2
+  paginates_per 4
 
   # setting for kakurenbo-puti
   soft_deletable
