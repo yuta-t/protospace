@@ -17,7 +17,7 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :images,
                      reject_if: :reject_image
 
-  def reject_image
+  def reject_image(attributed)
     attributed['name'].blank?
   end
 end
