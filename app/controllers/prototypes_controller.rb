@@ -9,6 +9,7 @@ class PrototypesController < ApplicationController
   def show
     @user = @prototype.user
     @sub_images = @prototype.images.sub
+    @comment = Comment.new
   end
 
   def new
