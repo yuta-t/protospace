@@ -1,15 +1,23 @@
 class Prototype < ActiveRecord::Base
-  # associations
-  belongs_to :user
-  has_many :images
-  accepts_nested_attributes_for :images
-
   # validations
-  validates_presence_of :title, :catch_copy, :concept
+  validates_presence_of :title, :catchcopy, :concept
 
   # setting for kaminari
-  paginates_per 2
+  paginates_per 4
 
   # setting for kakurenbo-puti
   soft_deletable
+
+  # associations
+  belongs_to :user
+  has_many :images
+  has_many :comments
+
+  # nested_attributes
+  accepts_nested_attributes_for :images,
+                     reject_if: :reject_image
+
+  def reject_image(attributed)
+    attributed['name'].blank?
+  end
 end

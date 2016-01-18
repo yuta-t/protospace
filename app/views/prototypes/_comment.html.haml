@@ -1,0 +1,20 @@
+.media
+  .media-left
+    %a{:href => "#"}
+      = image_tag comment.user.image, class: 'media-object', size: '64x64'
+  .media-body
+    .comment-heading-wrapper
+      %h4#top-aligned-media.media-heading.comment-heading
+        = comment.user.username
+      - if comment.user == current_user
+        .comment-drop-menu-wrapper
+          .comment-drop-menu-location
+            %button#dropdownMenu.btn.btn-default.btn-xs.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+              Action
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+              %li
+                = link_to 'Edit', '', id: 'edit-comment'
+              %li
+                = link_to 'Delete', '', id: 'delete-comment'
+
+    = simple_format(comment.comment)

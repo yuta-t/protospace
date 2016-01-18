@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113085836) do
+ActiveRecord::Schema.define(version: 20160116133627) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",           limit: 4
+    t.integer  "prototype_id",      limit: 4
+    t.text     "comment",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.datetime "soft_destroyed_at"
+  end
+
+  add_index "comments", ["prototype_id"], name: "index_comments_on_prototype_id", using: :btree
+  add_index "comments", ["soft_destroyed_at"], name: "index_comments_on_soft_destroyed_at", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "prototype_id", limit: 4
-    t.string   "image_type",   limit: 255
+    t.integer  "image_type",   limit: 4
     t.string   "name",         limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -24,10 +37,10 @@ ActiveRecord::Schema.define(version: 20160113085836) do
   create_table "prototypes", force: :cascade do |t|
     t.integer  "user_id",           limit: 4
     t.string   "title",             limit: 255
-    t.string   "catch_copy",        limit: 255
-    t.string   "concept",           limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "catchcopy",         limit: 255
+    t.text     "concept",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.datetime "soft_destroyed_at"
   end
 
@@ -50,12 +63,14 @@ ActiveRecord::Schema.define(version: 20160113085836) do
     t.text     "profile",                limit: 65535
     t.string   "occupation",             limit: 255
     t.string   "position",               limit: 255
-    t.string   "user_name",              limit: 255
+    t.string   "username",               limit: 255
     t.string   "image",                  limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "prototypes"
+  add_foreign_key "comments", "users"
   add_foreign_key "prototypes", "users"
 end

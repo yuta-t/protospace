@@ -3,12 +3,15 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.without_soft_destroyed
+                           .order(created_at: :DESC)
                            .page(params[:page])
   end
 
   def show
     @user = @prototype.user
     @sub_images = @prototype.images.sub
+    @comments = @prototype.comments.without_soft_destroyed
+    @comment = Comment.new
   end
 
   def new
@@ -22,6 +25,7 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @sub_image_count = @prototype.images.sub.count
   end
 
   def update
@@ -40,6 +44,6 @@ class PrototypesController < ApplicationController
   end
 
   def prototype_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:name, :image_type])
+    params.require(:prototype).permit(:title, :catchcopy, :concept, images_attributes: [:id, :name, :image_type])
   end
 end

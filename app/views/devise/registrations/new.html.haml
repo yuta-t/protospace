@@ -7,8 +7,8 @@
           = devise_error_messages!
           .user-name_image.row
             .user-name.col-md-10
-              = f.text_field :user_name, :placeholder => 'Username', autofocus: true
-            .user-image.col-md-2
+              = f.text_field :username, :placeholder => 'Username', autofocus: true
+            .user-image.col-md-2.preview-uploaded-image
               %button.btn.btn-primary Add image
               = f.file_field :image
 

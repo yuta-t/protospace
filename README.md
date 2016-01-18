@@ -3,30 +3,31 @@
 ## テーブル構成
 ### users テーブル
 deviceのデフォルトカラム
+username: :string
 profile: :text
 occupation: :string
 position: :string
 carrierwaveのデフォルトカラム
 
 ### prototypes テーブル
-user_id: :references
+user: :references
 title: :string
-catch_copy: :string
+catchcopy: :string
 concept: :text
 
 ### imgaes テーブル
-prototype_id: :references
-type: :string (Main or Sub)
+prototype: :references
+image_type: :integer (Main = 0 or Sub = 1)
 carrirewaveのデフォルトカラム
 
-### likes テーブル
-user_id: :references
-prototype_id: :references
-
 ### comments テーブル
-user_id: :references
-prototype_id: :references
+user: :references
+prototype: :references
 comment: :text
+
+### likes テーブル
+user: :references
+prototype: :references
 
 ### tags テーブル
 name: :string

@@ -7,14 +7,15 @@
           = devise_error_messages!
           .user-name_image.row
             .user-name.col-md-10
-              = f.text_field :user_name, :placeholder => 'Username', autofocus: true
-            .user-image.col-md-2
+              = f.text_field :username, :placeholder => 'Username', autofocus: true
+            .user-image.col-md-2.preview-uploaded-image
               %button.btn.btn-primary Add image
               = f.file_field :image
 
           = f.email_field :email, placeholder: 'E-Mail', class: 'user-email'
-          = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'user-password'
-          = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation', class: 'user-password'
+          = f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password', class: 'user-password'
+          = f.password_field :password, autocomplete: "off", placeholder: 'New Password', class: 'user-password'
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'New Password Confirmation', class: 'user-password'
 
           %h4 Profile
           .user-user-profile.row

@@ -1,0 +1,33 @@
+// for show action in case no log in
+footer {
+  margin-top: 20px;
+}
+
+// for display drop menu in prototype#index
+.drop_menu_location {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+// for display comments drop menu in prototype#show
+.comment-heading-wrapper:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.comment-heading {
+  display: inline-block;
+  float: left;
+}
+
+.comment-drop-menu-wrapper {
+  position: relative;
+  float: left;
+}
+
+.comment-drop-menu-location {
+  position: absolute;
+  left: 8px;
+}

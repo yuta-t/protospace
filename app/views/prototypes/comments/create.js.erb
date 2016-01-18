@@ -1,0 +1,4 @@
+$('#comment_comment').val('')
+$('#comments').html(
+  '<%= j(render partial: 'prototypes/comment', collection: @comments) %>'
+)
