@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114080247) do
+ActiveRecord::Schema.define(version: 20160116133627) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "prototype_id", limit: 4
-    t.text     "comment",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "user_id",           limit: 4
+    t.integer  "prototype_id",      limit: 4
+    t.text     "comment",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.datetime "soft_destroyed_at"
   end
 
   add_index "comments", ["prototype_id"], name: "index_comments_on_prototype_id", using: :btree
+  add_index "comments", ["soft_destroyed_at"], name: "index_comments_on_soft_destroyed_at", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
