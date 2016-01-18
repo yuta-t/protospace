@@ -10,7 +10,7 @@ class PrototypesController < ApplicationController
   def show
     @user = @prototype.user
     @sub_images = @prototype.images.sub
-    @comments = @prototype.comments
+    @comments = @prototype.comments.without_soft_destroyed
     @comment = Comment.new
   end
 
