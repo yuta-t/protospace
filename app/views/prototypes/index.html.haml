@@ -1,16 +1,15 @@
 .jumbotron
   .container.text-center
-    = image_tag("header_logo.png", :alt => "PROTO TYPE - SHARE THE PROTOTYPE", :height => "73px")
-
+    = image_tag "header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: '73px'
 .filter-nav
   .container
-    .row
-      %ul.nav.nav-pills.col-lg-11
+    .row.clearfix
+      %ul.nav.nav-pills.left
         %li#js-ranking{:role => "presentation"}
           = link_to 'Pupular', prototypes_ranking_index_path
         %li#js-newest{:role => "presentation"}
           = link_to 'Newest', prototypes_newest_index_path
-      %button{:type => "button", :class => "btn btn-default col-lg-1"} View Tags
+      = button_tag 'View Tags', class: 'btn btn-default right'
 
 .container.proto-list
   .row
