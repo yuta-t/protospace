@@ -31,3 +31,17 @@ footer {
   position: absolute;
   left: 8px;
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
