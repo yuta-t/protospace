@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :prototypes do
-    resources :comments, only: [:create, :edit, :update, :destroy], module: :prototypes
+    scope module: :prototypes do
+      resources :comments, only: [:create, :edit, :update, :destroy]
+      resources :likes, only: [:create, :destroy]
+    end
   end
 
 end
