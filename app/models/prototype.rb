@@ -12,6 +12,7 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :images
   has_many :comments
+  has_many :likes
 
   # nested_attributes
   accepts_nested_attributes_for :images,
