@@ -11,15 +11,15 @@
             - if @prototype.user == current_user
               = link_to 'Edit', edit_prototype_path(@prototype.id), class: 'btn btn-xs navbar-inverse btn-edit'
           .proto-user
-            %a{:href => ""} by #{@user.username}
-            %span.degree #{@user.occupation} #{@user.position}
+            %a{:href => ""} by #{@prototype.user.username}
+            %span.degree #{@prototype.user.occupation} #{@prototype.user.position}
 
     .col-md-6.text-right#js-like
       - if user_signed_in?
         = render partial: 'like', locals: {prototype: @prototype, like: @like}
   .row
     .col-md-9
-      = image_tag @prototype.images.main.first.name.url, class: 'img-responsive'
+      = image_tag @prototype.main_image.name.url, class: 'img-responsive'
     .col-md-3
       %ul.proto-sub-list.list-group
         = render partial: 'sub_image', collection: @sub_images
