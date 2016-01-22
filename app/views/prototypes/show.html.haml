@@ -14,11 +14,9 @@
             %a{:href => ""} by #{@user.username}
             %span.degree #{@user.occupation} #{@user.position}
 
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+    .col-md-6.text-right#js-like
+      - if user_signed_in?
+        = render partial: 'like', locals: {prototype: @prototype, like: @like}
   .row
     .col-md-9
       = image_tag @prototype.images.main.first.name.url, class: 'img-responsive'
