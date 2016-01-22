@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :prototypes do
-    resources :ranking, only: :index
-    resources :newest, only: :index
+    resources :ranking, only: [:index]
+    resources :newest, only: [:index]
   end
 
   resources :prototypes do
