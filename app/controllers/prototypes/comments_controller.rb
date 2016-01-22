@@ -1,4 +1,5 @@
 class Prototypes::CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_prototype, only: [:create, :destroy]
 
   def create

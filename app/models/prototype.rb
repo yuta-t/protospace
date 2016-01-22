@@ -12,6 +12,12 @@ class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :images
   has_many :comments
+  has_many :likes
+
+  # indexで画像を表示するときクエリをすくなくする用
+  # なぜかラムダが使えないので一番上の画像を取るようになってるが、
+  # 普通にprototypeを投稿すればmainが一番上なので正常に見える
+  has_one :main_image, class_name: "Image"
 
   # nested_attributes
   accepts_nested_attributes_for :images,
