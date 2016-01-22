@@ -1,14 +1,6 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
   before_action :get_prototype, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @prototypes = Prototype.without_soft_destroyed
-                           .includes(:user, :main_image)
-                           .order({likes_count: :DESC,
-                                    created_at: :DESC})
-                           .page(params[:page])
-  end
 
   def show
     @user = @prototype.user
