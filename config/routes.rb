@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  root 'prototypes#index'
+  root 'prototypes/ranking#index'
 
   devise_for :users
+
+  namespace :prototypes do
+    resources :ranking, only: :index
+    resources :newest, only: :index
+  end
 
   resources :prototypes do
     scope module: :prototypes do
@@ -9,5 +14,4 @@ Rails.application.routes.draw do
       resources :likes, only: [:create, :destroy]
     end
   end
-
 end
