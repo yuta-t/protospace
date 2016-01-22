@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119043806) do
+ActiveRecord::Schema.define(version: 20160122063522) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",           limit: 4
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160119043806) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.datetime "soft_destroyed_at"
+    t.integer  "likes_count",       limit: 4
   end
 
   add_index "prototypes", ["soft_destroyed_at"], name: "index_prototypes_on_soft_destroyed_at", using: :btree
