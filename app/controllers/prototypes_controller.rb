@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :get_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,6 +13,7 @@ class PrototypesController < ApplicationController
     @sub_images = @prototype.images.sub
     @comments = @prototype.comments.without_soft_destroyed
     @comment = Comment.new
+    @like = @prototype.likes.find_by(user_id: current_user.id) if user_signed_in?
   end
 
   def new
