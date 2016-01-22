@@ -6,9 +6,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{:role => "presentation"}
+        %li#js-ranking{:role => "presentation"}
           = link_to 'Pupular', prototypes_ranking_index_path
-        %li{:role => "presentation"}
+        %li#js-newest{:role => "presentation"}
           = link_to 'Newest', prototypes_newest_index_path
       %button{:type => "button", :class => "btn btn-default col-lg-1"} View Tags
 
@@ -18,3 +18,6 @@
 
 .text-center
   = paginate @prototypes
+
+:javascript
+  $('#js-#{@type}').addClass('active')

@@ -4,6 +4,7 @@ class Prototypes::NewestController < ApplicationController
                            .includes(:user, :main_image)
                            .order(created_at: :DESC)
                            .page(params[:page])
+    @type = 'newest'
     render template: 'prototypes/index'
   end
 end

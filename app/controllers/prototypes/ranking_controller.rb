@@ -5,6 +5,7 @@ class Prototypes::RankingController < ApplicationController
                            .order({likes_count: :DESC,
                                     created_at: :DESC})
                            .page(params[:page])
+    @type = 'ranking'
     render template: 'prototypes/index'
   end
 end
