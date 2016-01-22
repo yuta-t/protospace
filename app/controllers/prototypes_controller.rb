@@ -4,7 +4,9 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.without_soft_destroyed
-                           .order(created_at: :DESC)
+                           .includes(:user, :main_image)
+                           .order({likes_count: :DESC,
+                                    created_at: :DESC})
                            .page(params[:page])
   end
 
