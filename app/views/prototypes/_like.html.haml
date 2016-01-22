@@ -3,10 +3,10 @@
     = image_tag("icon_heart.svg")
     Like
     %span.num
-      = prototype.likes.count
+      = prototype.likes_count
 - else
   = button_to prototype_like_path(prototype.id, like.id), class: 'btn btn-default', method: :delete, remote: true do
     = image_tag("icon_heart_red.svg")
     Like
     %span.num
-      = prototype.likes.count
+      = prototype.likes_count

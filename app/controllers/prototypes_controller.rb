@@ -1,21 +1,16 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
   before_action :get_prototype, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @prototypes = Prototype.without_soft_destroyed
-                           .includes(:user, :main_image)
-                           .order({likes_count: :DESC,
-                                    created_at: :DESC})
-                           .page(params[:page])
-  end
-
   def show
-    @user = @prototype.user
-    @sub_images = @prototype.images.sub
-    @comments = @prototype.comments.without_soft_destroyed
     @comment = Comment.new
-    @like = @prototype.likes.find_by(user_id: current_user.id) if user_signed_in?
+    @sub_images = @prototype.images.sub
+    @comments = @prototype.comments
+                          .without_soft_destroyed
+                          .includes(:user)
+    if user_signed_in?
+      @like = @prototype.likes.find_by(user_id: current_user.id)
+    end
   end
 
   def new
