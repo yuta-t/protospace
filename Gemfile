@@ -21,6 +21,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'kakurenbo-puti'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'byebug'
