@@ -9,3 +9,26 @@ h4 {
 .media, .media-body {
   overflow: visible;
 }
+
+.nav-pills > li + li {
+  margin-left: 10px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.tag-square {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.tag-list {
+  a {
+    text-decoration: none;
+  }
+}
+
+.hr-tag {
+  margin: 5px 20px;
+}

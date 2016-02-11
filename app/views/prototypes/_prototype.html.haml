@@ -19,8 +19,5 @@
           %a{:href => "#"} by #{prototype.user.username}
         .proto-posted
           = prototype.created_at.strftime("%b %d")
-      -# %ul.proto-tag-list.list-inline
-      -#   %li
-      -#     %a{:href => "#", :class => "btn btn-default"} iPad
-      -#   %li
-      -#     %a{:href => "#", :class => "btn btn-default"} wireframe
+      %ul.proto-tag-list.list-inline.index-tag-list
+        = render partial: 'prototypes/tag', collection: prototype.tag_list
