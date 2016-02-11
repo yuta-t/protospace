@@ -1,0 +1,17 @@
+.jumbotron
+  .container.text-center
+    = image_tag "header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: '73px'
+.filter-nav
+  .container
+    .row.clearfix
+      %ul.nav.nav-pills.left
+        %li#js-ranking{role: 'presentation'}
+          = link_to 'Pupular', prototypes_ranking_index_path, class: 'btn btn-default right'
+        %li#js-newest{role: 'presentation'}
+          = link_to 'Newest', prototypes_newest_index_path, class: 'btn btn-default right'
+      %ul.nav.nav-pills.right
+        %li#js-tags{role: 'presentation'}
+          = link_to 'View Tags', tags_path, class: 'btn btn-default right'
+
+:javascript
+  $('#js-#{@type}').addClass('active')
