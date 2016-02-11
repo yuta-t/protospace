@@ -1,0 +1,8 @@
+.col-xs-4.col-sm-3.col-md-3.tag-list
+  = link_to tag_path(tag.name) do
+    .thumbnail.tag-square.btn.btn-default
+      = tag.name
+      %hr.hr-tag
+      %span
+        = tag.taggings_count
+        件
