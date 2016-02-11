@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags, only: [:index, :show], params: :tag_name
+  resources :tags, only: [:index, :show], param: :tag_name
 end
