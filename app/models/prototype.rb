@@ -26,4 +26,7 @@ class Prototype < ActiveRecord::Base
   def reject_image(attributed)
     attributed['name'].blank?
   end
+
+  # acts-as-taggable-on
+  acts_as_taggable
 end

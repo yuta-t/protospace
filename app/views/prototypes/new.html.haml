@@ -37,11 +37,12 @@
         .col-md-12
           %h4 Tag List
           .row
-            .col-md-3
-              %input{:type => "text", :placeholder => "Web Design"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "UI"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "Application"}/
+            = f.fields_for :tags do |t|
+              .col-md-3
+                = t.text_field :'0', placeholder: 'Web'
+              .col-md-3
+                = t.text_field :'1', placeholder: 'アプリ'
+              .col-md-3
+                = t.text_field :'2', placeholder: 'iOS'
       .row.text-center.proto-btn
         = f.submit 'Publish', class: 'btn btn-lg btn-primary btn-block'
