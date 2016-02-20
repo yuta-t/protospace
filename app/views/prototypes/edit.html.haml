@@ -44,7 +44,7 @@
         .col-md-12
           %h4 Tag List
           .row
-            = f.fields_for :tags do |t|
+            = f.fields_for :tags, @prototype.tag_list do |t|
               .col-md-3
                 = t.text_field :'0', placeholder: 'Web', value: @prototype.tag_list[0]
               .col-md-3
