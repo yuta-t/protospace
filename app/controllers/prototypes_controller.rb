@@ -24,7 +24,6 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @sub_image_count = @prototype.images.sub.count
   end
 
   def update
