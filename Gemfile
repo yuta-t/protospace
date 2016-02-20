@@ -22,6 +22,7 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'kakurenbo-puti'
 gem 'acts-as-taggable-on'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
